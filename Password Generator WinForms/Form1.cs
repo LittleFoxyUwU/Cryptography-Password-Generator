@@ -1,35 +1,48 @@
+
 namespace Password_Generator_WinForms
 {
     public partial class Form1 : Form
     {
-        bool doesContainLetters = false;
+        bool doesContainSmallLetters = false;
         bool doesContainPunctuation = false;
-        int amount = 1;
-        int length = 1;
-        string amountStr = "1";
-        string lengthStr = "1";
+        bool doesContainBigLetters = false;
+        bool doesContainNumbers = false;
+        int amount = 0;
+        int length = 0;
+        string amountStr = "0";
+        string lengthStr = "0";
+
         public Form1()
         {
-            InitializeComponent();
-            
+            InitializeComponent();           
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
-        private void DoesContainLetters_CheckedChanged(object sender, EventArgs e)
+        private void Numbers_CheckedChanged(object sender, EventArgs e)
         {
-            CheckBox checkBox = (CheckBox)sender;
-            doesContainLetters = checkBox.Checked;
+            doesContainNumbers = ((CheckBox)sender).Checked;
         }
 
-        private void DoesContainPunct_CheckedChanged(object sender, EventArgs e)
+        private void SmallLetters_CheckedChanged(object sender, EventArgs e)
         {
-            CheckBox checkBox = (CheckBox)sender;
-            doesContainPunctuation = checkBox.Checked;
+            doesContainSmallLetters = ((CheckBox)sender).Checked;
         }
+
+        private void BigLetters_CheckedChanged(object sender, EventArgs e)
+        {
+            doesContainBigLetters = ((CheckBox)sender).Checked;
+        }
+
+        private void Punctuation_CheckedChanged(object sender, EventArgs e)
+        {
+            doesContainPunctuation = ((CheckBox)sender).Checked;
+        }
+    
+
 
         private void StartButton_Click(object sender, EventArgs e)
         {
@@ -52,12 +65,17 @@ namespace Password_Generator_WinForms
                 return;
             }
 
+            if (!doesContainSmallLetters && !doesContainPunctuation && !doesContainNumbers && !doesContainBigLetters)
+            {
+                MessageBox.Show("Choose at least one option!");
+                return;
+            }
+
             string[] lines = new string[amount];
-            Generator generator = new();
            
 
             for (int i = 0; i < amount; i++)
-                lines[i] = $"{i + 1}: {generator.CryptoGenerator(length, doesContainLetters, doesContainPunctuation)}\n";
+                lines[i] = $"{i + 1}: {Generator.CryptoGenerator(length, doesContainBigLetters, doesContainPunctuation, doesContainNumbers, doesContainSmallLetters)}\n";
             OutputTextBox.Lines = lines;
         }
 
@@ -71,5 +89,7 @@ namespace Password_Generator_WinForms
             TextBox textBox = (TextBox)sender;
             lengthStr = textBox.Text;
         }
+
+     
     }
 }

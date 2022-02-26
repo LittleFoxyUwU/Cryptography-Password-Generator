@@ -28,27 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.CheckBox DoesContainLetters;
+            System.Windows.Forms.CheckBox BigLetters;
             this.StartButton = new System.Windows.Forms.Button();
-            this.DoesContainPunct = new System.Windows.Forms.CheckBox();
+            this.Punctuation = new System.Windows.Forms.CheckBox();
             this.OutputTextBox = new System.Windows.Forms.RichTextBox();
             this.AmountBox = new System.Windows.Forms.TextBox();
             this.LenghtBox = new System.Windows.Forms.TextBox();
             this.AmountLabel = new System.Windows.Forms.Label();
             this.LengthLabel = new System.Windows.Forms.Label();
-            DoesContainLetters = new System.Windows.Forms.CheckBox();
+            this.SmallLetters = new System.Windows.Forms.CheckBox();
+            this.Numbers = new System.Windows.Forms.CheckBox();
+            BigLetters = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
-            // DoesContainLetters
+            // BigLetters
             // 
-            DoesContainLetters.AutoSize = true;
-            DoesContainLetters.Location = new System.Drawing.Point(12, 305);
-            DoesContainLetters.Name = "DoesContainLetters";
-            DoesContainLetters.Size = new System.Drawing.Size(61, 19);
-            DoesContainLetters.TabIndex = 0;
-            DoesContainLetters.Text = "Letters";
-            DoesContainLetters.UseVisualStyleBackColor = true;
-            DoesContainLetters.CheckedChanged += new System.EventHandler(this.DoesContainLetters_CheckedChanged);
+            BigLetters.AutoSize = true;
+            BigLetters.Cursor = System.Windows.Forms.Cursors.Hand;
+            BigLetters.Location = new System.Drawing.Point(12, 305);
+            BigLetters.Name = "BigLetters";
+            BigLetters.Size = new System.Drawing.Size(78, 19);
+            BigLetters.TabIndex = 0;
+            BigLetters.Text = "Big letters";
+            BigLetters.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            BigLetters.UseVisualStyleBackColor = true;
+            BigLetters.CheckedChanged += new System.EventHandler(this.BigLetters_CheckedChanged);
             // 
             // StartButton
             // 
@@ -60,16 +64,17 @@
             this.StartButton.UseVisualStyleBackColor = true;
             this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
-            // DoesContainPunct
+            // Punctuation
             // 
-            this.DoesContainPunct.AutoSize = true;
-            this.DoesContainPunct.Location = new System.Drawing.Point(12, 280);
-            this.DoesContainPunct.Name = "DoesContainPunct";
-            this.DoesContainPunct.Size = new System.Drawing.Size(91, 19);
-            this.DoesContainPunct.TabIndex = 1;
-            this.DoesContainPunct.Text = "Punctuation";
-            this.DoesContainPunct.UseVisualStyleBackColor = true;
-            this.DoesContainPunct.CheckedChanged += new System.EventHandler(this.DoesContainPunct_CheckedChanged);
+            this.Punctuation.AutoSize = true;
+            this.Punctuation.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Punctuation.Location = new System.Drawing.Point(12, 280);
+            this.Punctuation.Name = "Punctuation";
+            this.Punctuation.Size = new System.Drawing.Size(91, 19);
+            this.Punctuation.TabIndex = 1;
+            this.Punctuation.Text = "Punctuation";
+            this.Punctuation.UseVisualStyleBackColor = true;
+            this.Punctuation.CheckedChanged += new System.EventHandler(this.Punctuation_CheckedChanged);
             // 
             // OutputTextBox
             // 
@@ -114,6 +119,30 @@
             this.LengthLabel.TabIndex = 7;
             this.LengthLabel.Text = "Enter a length of passwords.";
             // 
+            // SmallLetters
+            // 
+            this.SmallLetters.AutoSize = true;
+            this.SmallLetters.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SmallLetters.Location = new System.Drawing.Point(12, 330);
+            this.SmallLetters.Name = "SmallLetters";
+            this.SmallLetters.Size = new System.Drawing.Size(90, 19);
+            this.SmallLetters.TabIndex = 8;
+            this.SmallLetters.Text = "Small letters";
+            this.SmallLetters.UseVisualStyleBackColor = true;
+            this.SmallLetters.CheckedChanged += new System.EventHandler(this.SmallLetters_CheckedChanged);
+            // 
+            // Numbers
+            // 
+            this.Numbers.AutoSize = true;
+            this.Numbers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Numbers.Location = new System.Drawing.Point(11, 255);
+            this.Numbers.Name = "Numbers";
+            this.Numbers.Size = new System.Drawing.Size(75, 19);
+            this.Numbers.TabIndex = 9;
+            this.Numbers.Text = "Numbers";
+            this.Numbers.UseVisualStyleBackColor = true;
+            this.Numbers.CheckedChanged += new System.EventHandler(this.Numbers_CheckedChanged);
+            // 
             // Form1
             // 
             this.AcceptButton = this.StartButton;
@@ -121,14 +150,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Numbers);
+            this.Controls.Add(this.SmallLetters);
             this.Controls.Add(this.LengthLabel);
             this.Controls.Add(this.AmountLabel);
             this.Controls.Add(this.LenghtBox);
             this.Controls.Add(this.AmountBox);
             this.Controls.Add(this.OutputTextBox);
             this.Controls.Add(this.StartButton);
-            this.Controls.Add(this.DoesContainPunct);
-            this.Controls.Add(DoesContainLetters);
+            this.Controls.Add(this.Punctuation);
+            this.Controls.Add(BigLetters);
             this.HelpButton = true;
             this.Name = "Form1";
             this.Text = "Cryptographic Password Generator";
@@ -141,11 +172,13 @@
         #endregion
 
         private Button StartButton;
-        private CheckBox DoesContainPunct;
+        private CheckBox Punctuation;
         private RichTextBox OutputTextBox;
         private TextBox AmountBox;
         private TextBox LenghtBox;
         private Label AmountLabel;
         private Label LengthLabel;
+        private CheckBox SmallLetters;
+        private CheckBox Numbers;
     }
 }
