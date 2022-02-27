@@ -38,6 +38,8 @@
             this.LengthLabel = new System.Windows.Forms.Label();
             this.SmallLetters = new System.Windows.Forms.CheckBox();
             this.Numbers = new System.Windows.Forms.CheckBox();
+            this.savePasswordsDialog = new System.Windows.Forms.SaveFileDialog();
+            this.Write = new System.Windows.Forms.CheckBox();
             BigLetters = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
@@ -60,7 +62,7 @@
             this.StartButton.Name = "StartButton";
             this.StartButton.Size = new System.Drawing.Size(224, 57);
             this.StartButton.TabIndex = 2;
-            this.StartButton.Text = "button1";
+            this.StartButton.Text = "Start";
             this.StartButton.UseVisualStyleBackColor = true;
             this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
@@ -84,6 +86,7 @@
             this.OutputTextBox.Size = new System.Drawing.Size(439, 454);
             this.OutputTextBox.TabIndex = 3;
             this.OutputTextBox.Text = "";
+            this.OutputTextBox.TextChanged += new System.EventHandler(this.OutputTextBox_TextChanged);
             // 
             // AmountBox
             // 
@@ -143,6 +146,25 @@
             this.Numbers.UseVisualStyleBackColor = true;
             this.Numbers.CheckedChanged += new System.EventHandler(this.Numbers_CheckedChanged);
             // 
+            // savePasswordsDialog
+            // 
+            this.savePasswordsDialog.DefaultExt = "txt";
+            this.savePasswordsDialog.FileName = "Passwords";
+            this.savePasswordsDialog.RestoreDirectory = true;
+            this.savePasswordsDialog.Title = "Save Passwords ";
+            // 
+            // Write
+            // 
+            this.Write.AutoSize = true;
+            this.Write.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Write.Location = new System.Drawing.Point(11, 168);
+            this.Write.Name = "Write";
+            this.Write.Size = new System.Drawing.Size(87, 19);
+            this.Write.TabIndex = 10;
+            this.Write.Text = "Write to file";
+            this.Write.UseVisualStyleBackColor = true;
+            this.Write.CheckedChanged += new System.EventHandler(this.Write_CheckedChanged);
+            // 
             // Form1
             // 
             this.AcceptButton = this.StartButton;
@@ -150,6 +172,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Write);
             this.Controls.Add(this.Numbers);
             this.Controls.Add(this.SmallLetters);
             this.Controls.Add(this.LengthLabel);
@@ -180,5 +203,7 @@
         private Label LengthLabel;
         private CheckBox SmallLetters;
         private CheckBox Numbers;
+        public SaveFileDialog savePasswordsDialog;
+        private CheckBox Write;
     }
 }

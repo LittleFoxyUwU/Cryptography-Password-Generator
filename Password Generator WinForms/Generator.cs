@@ -2,9 +2,8 @@
 
 internal class Generator
 {
-    public static string CryptoGenerator(int length, bool isHaveBigLetters, bool isHavePunctuation, bool isHaveNumbers, bool isHaveSmallLetters)
+    public static string PasswordGenerator(int length, bool isHaveBigLetters, bool isHavePunctuation, bool isHaveNumbers, bool isHaveSmallLetters)
     {
-        Random rnd = new();
         string password = "";
         string chars = "";
         if (isHaveNumbers) chars += "1234567890";
