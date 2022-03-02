@@ -38,8 +38,8 @@
             this.LengthLabel = new System.Windows.Forms.Label();
             this.SmallLetters = new System.Windows.Forms.CheckBox();
             this.Numbers = new System.Windows.Forms.CheckBox();
-            this.savePasswordsDialog = new System.Windows.Forms.SaveFileDialog();
             this.Write = new System.Windows.Forms.CheckBox();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             BigLetters = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
@@ -146,13 +146,6 @@
             this.Numbers.UseVisualStyleBackColor = true;
             this.Numbers.CheckedChanged += new System.EventHandler(this.Numbers_CheckedChanged);
             // 
-            // savePasswordsDialog
-            // 
-            this.savePasswordsDialog.DefaultExt = "txt";
-            this.savePasswordsDialog.FileName = "Passwords";
-            this.savePasswordsDialog.RestoreDirectory = true;
-            this.savePasswordsDialog.Title = "Save Passwords ";
-            // 
             // Write
             // 
             this.Write.AutoSize = true;
@@ -164,6 +157,11 @@
             this.Write.Text = "Write to file";
             this.Write.UseVisualStyleBackColor = true;
             this.Write.CheckedChanged += new System.EventHandler(this.Write_CheckedChanged);
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.DefaultExt = "txt";
+            this.saveFileDialog1.Title = "Save File";
             // 
             // Form1
             // 
@@ -203,7 +201,7 @@
         private Label LengthLabel;
         private CheckBox SmallLetters;
         private CheckBox Numbers;
-        public SaveFileDialog savePasswordsDialog;
         private CheckBox Write;
+        private SaveFileDialog saveFileDialog1;
     }
 }

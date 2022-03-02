@@ -102,19 +102,30 @@ namespace Password_Generator_WinForms
             for (int i = 0; i < amount; i++)
                 lines[i] = $"{i + 1}: {Generator.PasswordGenerator(length, doesContainBigLetters, doesContainPunctuation, doesContainNumbers, doesContainSmallLetters)}\n";
             OutputTextBox.Lines = lines;
-
-            Stream myStream;
+         
             if (writeToFile)
             {
-                if (savePasswordsDialog.ShowDialog() == DialogResult.OK)
-                    if ((myStream = savePasswordsDialog.OpenFile()) != null)
+                saveFileDialog1.FileName = $"passwords_{DateTime.Now.ToString("dd-MM-y--H-m-s")}.txt";
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    var stream = new StreamWriter(saveFileDialog1.OpenFile());
+                    if (stream != null)
+                    {
                         foreach (string line in lines)
-                            foreach(char c in line)
-                                myStream.WriteByte((byte)c);
-            }               
+                            stream.Write(line);
+                        stream.Close();
+                    }
+                }
+            }
+
         }
 
         private void OutputTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)
         {
 
         }
